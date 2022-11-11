@@ -12,10 +12,10 @@ const api = stability.generate({
   outDir: "./images",
 });
 
-api.on("image", ({ buffer, filePath }) => {
-  uploadImage(filePath).then(console.log);
+api.on("image", (args) => {
+  uploadImage(args.filePath).then(console.log);
 });
 
-api.on("end", data => {
+api.on("end", (data) => {
   console.log("Generating Complete", data);
 });
