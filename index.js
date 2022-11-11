@@ -3,7 +3,6 @@ const stability = require('stability-client');
 const uploadImage = require('./cloudinary');
 // generate an image
 const api = stability.generate({
-    // the image will be 1000x1000
     width: 1024,
     height: 1024,
     format: 'png',
@@ -14,7 +13,7 @@ const api = stability.generate({
 });
 
 api.on('image', ({ buffer, filePath }) => {
-    uploadImage(filePath);
+    uploadImage(filePath).then(console.log);
 })
 
 api.on('end', (data) => {
