@@ -10,7 +10,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
 });
 
-const uploadImage = async imagePath => {
+const uploadImage = async (imagePath) => {
   const options = {
     use_filename: true,
     unique_filename: false,
@@ -21,6 +21,7 @@ const uploadImage = async imagePath => {
     return result.secure_url;
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 module.exports = uploadImage;
