@@ -1,6 +1,7 @@
 require("dotenv").config();
 const stability = require("stability-client");
 const uploadImage = require("./cloudinary");
+
 // generate an image
 const api = stability.generate({
   width: 1024,
